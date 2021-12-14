@@ -1,0 +1,21 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+    
+    CONST reel $constante_1, $constante_2;      ## <--- declaration sans difinition ##
+    CONST chaine $constante_3 := "une chaine";  ## <--- pas d'erreur, premiere difinition dans la partie declaration ##
+    main(){
+
+        $constante_1 := 10.33;                  ## <--- pas d'erreur, premiere difinition dans main() ##
+
+        $constante_1 := 74.6;                   ## <--- erreur: re-difinition ##
+        $constante_3 := "une autre chaine";     ## <--- erreur: re-difinition ##
+
+        in("%f", $constante_1);                 ## <--- erreur: re-difinition ##
+        in("%s", $constante_3);                 ## <--- erreur: re-difinition ##
+
+        in("%f", $constante_2);                 ## <--- pas d'erreur ##
+
+    }
+}
+

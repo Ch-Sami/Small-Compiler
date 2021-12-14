@@ -1,0 +1,43 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+
+    ## non compatibilité de type dans la partie declaration (quand on fait une affectation) ##
+        entier $variable_1 := 8.12;
+        CONST entier $variable_2 := -17.32;
+        chaine $variable_4 := 12.032;
+        chaine $variable_5 := 3;
+        reel $variable_6 := "une chaine";
+        entier @tab1[3], @tab2[2] := ["une chaine", -5.22];
+        chaine @tab3[3] := [2 ,-17.5, "une chaine"];
+
+        entier $i := 0;          ## <--- pas d'erreur la ##
+    main(){
+
+        ## non comparibilite de type dans une boucle ##
+            for($i := -17.25 ; $i < 10 ; $i++){
+
+                ## non comparibilite de type dans une instruction d'affectation ##
+                    $variable_1 := -68.1;
+                    $variable_4 := 12.032;
+                    $variable_6 := "une autre chaine";
+                    @tab1[] := ["une chaine", 6.68 , -18];   ## <--- remplir plusieur cellules a la fois ##
+                    @tab2[] := [+9.999, "une chaine"];       ## <--- remplir plusieur cellules a la fois ##
+                    @tab3[2] := -17.2;                       ## <--- affecter une valeur a une cellule ##
+                    $variable_1 := 10 / 2;                   ## <--- pas d'erreur ##
+                    $variable_1 := $variable_1 / 2 + 1 * 3;  ## <--- incopatibilité de type ##
+                    $variable_4 := "une chaine";             ## <--- pas d'erreur ##
+                    $variable_1 :=  10 / $variable_4;        ## <--- erruer syntaxique: une chaine de
+                                                                    caracteres ne peut pas etre un operand
+                                                                    dans une expression arithmetique ##
+                    
+                ## non comparibilite de type dans une lecture ou une ecriture ##
+                    in("%d", $variable_6);
+                    in("%f", $variable_4);
+                    in("%s", $variable_1);
+                    out("une chaine %d %f %s \n", $variable_6, $variable_4);
+
+            }
+    }
+}
+

@@ -1,0 +1,29 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+
+    entier $variable1, $variable2, $variable3;
+    entier $variable4, $variable5 := 4 * ( (5 - 2) / 3 ) + 4 ;       ## <--- resultat : 8 ##
+
+    reel $variable6, $variable7, $variable8;
+    reel $variable9, $variable10 := (15 - 10) / 2 + ( 7 * 2 / (5 - 2) ) ;        ## <--- resultat : 7.166667 ##
+
+    reel $variable11,$variable12;
+
+    main(){
+
+                        ## <--- resulta#t : 7 ##
+        $variable2 := ( ( 3 + 9) / ( 2 * 3 ) + 4) / 2 ;              ## <--- resultat : 3 ##
+        $variable3 := ($variable1 * 3 - $variable2) / 2 ;            ## <--- resultat : 9 ##        
+
+        $variable6 := 17.89 / 2 + ( 9 / 4.5 + 3 ) * $variable2 / 3.9 ;           ## <--- resultat : 12.791153 ##
+        $variable7 := ( 5 + 6.8 ) / 2 / (1.5 * 2) * ( $variable3 - 0.32 ) ;      ## <--- resultat : 17.070667 ##
+        $variable8 := $variable6 * 2 - ( 5.8 + $variable7 * 2 ) / $variable1;    ## <--- resultat : 19.8764 ##
+        
+        ## les erreurs ##
+            $variable11 := 18.25 / 2 + $variable12 + 7 / 8 ;     ## <--- erruer : l'operand $variable12 est
+                                                                    non défini càd: n'a pas de valeur ##
+            $variable11 := ($variable3 + 3)/ ( 7 * $variable2 - 21 );  ## <--- erreur : division par zero ##
+    }
+}
+

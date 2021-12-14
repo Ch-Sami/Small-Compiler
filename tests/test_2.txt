@@ -1,0 +1,31 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+
+    ## declarations normale ##
+        entier $variable_1, $variable_3;
+        CONST entier $variable_4;
+        CONST reel $variable_6, $variable_7;
+        chaine $variable_8;
+        entier $i := 0;
+        entier @tab1[3], @tab2[2];
+        reel @tab3[4];
+        chaine @tab4[3];
+
+    ## les double declarations ##
+        CONST reel $variable_1, $variable_5;
+        entier $variable_4, $variable_6;
+        chaine $variable_8;
+        chaine @tab1[5], @tab2[5];
+        reel @tab3[4];
+        entier @tab4[2];
+    
+    main(){
+
+        ## double declaration dans l'initialisation d'une boucle ($i est deja declare a la ligne 10) ##
+            for(entier $i := 0 ; $i < 10 ; $i++){
+
+            }
+    }
+}
+

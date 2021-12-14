@@ -1,0 +1,26 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+
+    ## Dépassement de la taille d’un tableau dans la partie declaration ##
+            entier @tab1[2] := [1, 2];          ## <--- pas d'erreur ##
+            entier @tab2[3] := [1, 2, 3, 4];    ## <--- taille depassé: taille tab2 == 3 < nombre d'éléments ##
+
+    main(){
+
+        ## Dépassement de la taille d’un tableau dans une instruction d'affectation ##
+            @tab2[] := [8, 7, 6, 5, 4, 3];      ## <--- taille depassé: taille tab2 == 3 < nombre d'éléments ##
+            @tab1[2] := 5;                      ## <--- cellule n'existe pas, car tab1 est du taille 2 ##
+        
+        ## Dépassement de la taille d’un tableau dans une boucle ##
+            for(entier $i := 0 ; $i < @tab1[2] ; $i++){           ## cellule @tab1[2] n'existe pas ##
+
+                ## Dépassement de la taille d’un tableau dans une lecture ou une ecriture ##
+                    in("%d",@tab1[5]);          ## <--- cellule @tab1[5] n'existe pas ##
+                    out("%d %d", @tab1[3], @tab1[4]);  ## <--- meme chose ##
+
+            }
+
+    }
+}
+

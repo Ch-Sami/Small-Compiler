@@ -1,0 +1,33 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+
+    entier $variable1;
+    reel $variable2;
+    chaine $variable3;
+    entier $variable4 := 7;
+    reel $variable5 := 42.13;
+    chaine $variable6 := "une chaine";
+
+    main(){
+
+        ## erreurs de la lecture ##
+            in("%d", $variable2);      ## <--- entier expecté mais $variable2 est un reel ##
+            in("%f", $variable3);      ## <--- reel expecté mais $variable1 est une chaine ##
+            in("%s", $variable1);      ## <--- chaine expecté mais $variable1 est un entier ##
+            in("", $variable1);        ## <--- aucun signe de formatage ##
+            in("%d", $variable1);      ## <--- pas d'erreur ##
+            in("%s", $variable6);      ## <--- pas d'erreur ##
+
+        ## erreurs de l'ecriture ##
+            out("une chaine %d %f", $variable4, $variable5, $variable6);    ## <-- peu de signes de formatage ##
+            out("une chaine %d %f %s", $variable4, $variable5);             ## <-- trop de signes de formatage ##
+            out("une chaine %s %d %f", $variable4, $variable5, $variable6); ## <-- incopatibilité des signes
+                                                                                   de formatage avec les
+                                                                                   parametres ##
+            out("une \%d chaine %d %f %s", $variable4, $variable5, $variable6); ## <--- pas d'erreur
+                                                                                        first %d escaped ##
+        
+    }
+}
+

@@ -1,0 +1,17 @@
+private class $TestClass {
+
+    entier $i;
+
+    main(){
+
+        $i := 1;                 ## <--- declanche l'erreur: ISIL.lang manquante, et $i ne sera pas défini ##
+        $i := $i + 1;            ## toutes les opérations sur les expressions arithmetiques
+                                    comme l'affectation ne fonctionneront pas ##
+
+        in("%d", $i);            ## <--- declanche l'erreur: ISIL.io manquante ##
+        out("%d", $i);           ## toutes les opérations d'entrée/sortie ne fonctionneront pas ##
+
+
+    }
+}
+

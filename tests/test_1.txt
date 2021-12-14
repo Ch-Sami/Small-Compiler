@@ -1,0 +1,30 @@
+import ISIL.io;
+import ISIL.lang;
+private class $TestClass {
+    main(){
+        
+        ## les variables utilisés suivantes ne sont pas declarés ##
+
+            ## dans l'affectation : ##
+                $variable_1 := 5;
+                $variable_2 := $variable_1;
+                $variable_3 := +84;
+                $variable_4 := -33;
+                $variable_5 := 9.65;
+                $variable_6 := +45.12;
+                $variable_7 := -60.013;
+                $variable_8 := "une chaine de caracteres";
+                @tab_1[2] := 0;
+                @tab_2[0] := 1.89;
+                @tab_3[9] := "une chaine de caracteres";
+
+            ## dans une boucle ##
+                for($i := 0 ; $i < @tab4[7] ; $i := $i + $variable_10){
+                    
+                }
+
+            ## dans une lecture ou une ecriture ##
+                in("%d", $variable_11);
+                out("une chaine de caracteres %d et %f et %s", $variable_12, $variable_13, $variable_14);
+    }
+}
